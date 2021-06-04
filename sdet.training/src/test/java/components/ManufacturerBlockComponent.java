@@ -3,7 +3,7 @@ package components;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
-import ControlExtensions.DropdownList;
+import controlExtensions.DropdownList;
 
 public class ManufacturerBlockComponent extends ComponentSuperClass {
 

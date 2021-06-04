@@ -5,6 +5,10 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import controlExtensions.Button;
+import controlExtensions.DropdownList;
+import controlExtensions.Textbox;
+
 public class ControlExtensionFactory {
 
 	private WebDriver _driver;

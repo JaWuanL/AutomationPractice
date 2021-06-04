@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import Components.ManufacturerBlockComponent;
+import components.HeaderComponent;
+import components.ManufacturerBlockComponent;
 import framework.PageSuperClass;
 
 public class HomePage extends PageSuperClass {

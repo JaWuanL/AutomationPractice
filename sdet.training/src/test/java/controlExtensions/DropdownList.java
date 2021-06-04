@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class DropdownList extends ControlExtension {
 
-	protected DropdownList(WebElement mappedElement, WebDriver driver) {
+	public DropdownList(WebElement mappedElement, WebDriver driver) {
 		super(mappedElement, driver);
 	}
 

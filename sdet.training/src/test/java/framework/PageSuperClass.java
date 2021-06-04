@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import ControlExtensions.ControlExtensionFactory;
-
 public abstract class PageSuperClass {
 	protected WebDriver driver;
 	protected String baseUrl;
@@ -18,7 +16,7 @@ public abstract class PageSuperClass {
 		this.driver = driver;
 		this.baseUrl = baseUrl;
 
-		_controlExtensionFactory = new ControlExtensionFactory(driver);
+		_controlExtensionFactory = new ControlExtensionFactory(driver, driver);
 
 		PageFactory.initElements(driver, this);
 	}
