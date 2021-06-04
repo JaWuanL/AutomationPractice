@@ -8,7 +8,7 @@ import framework.TestSuperClass;
 
 public abstract class AutomationPracticeTestsSuperClass extends TestSuperClass {
 	
-	private String baseUrl = "http://www.automationPractice.com";
+	protected String baseUrl = "http://www.automationPractice.com";
 
 	@BeforeMethod
 	public void Setup() {

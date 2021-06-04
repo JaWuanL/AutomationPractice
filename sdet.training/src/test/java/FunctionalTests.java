@@ -3,9 +3,9 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 import Pages.HomePage;
-import framework.TestSuperClass;
+import foundation.AutomationPracticeTestsSuperClass;
 
-public class FunctionalTests extends TestSuperClass {
+public class FunctionalTests extends AutomationPracticeTestsSuperClass {
 
 	@Test
 	public void canFilterSearchResultsByFashionManufacturer() {
