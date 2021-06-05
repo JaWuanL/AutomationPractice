@@ -34,6 +34,8 @@ public class HomePage extends PageSuperClass {
 	public HomePage clickSearchButton() {
 		new HeaderComponent(headerElement, driver)
 		.clickSearchButton();
+		
+		//add sync here
 
 		return this;
 	}
