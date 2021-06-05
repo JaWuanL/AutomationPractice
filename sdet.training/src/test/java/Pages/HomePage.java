@@ -14,7 +14,7 @@ public class HomePage extends PageSuperClass {
 	@FindBy(how=How.ID, using="header")
 	private WebElement headerElement;
 	
-	@FindBy(how=How.ID, using="header")
+	@FindBy(how=How.ID, using="manufacturers_block_left")
 	private WebElement manufacturerBlockElement;
 
 	@FindBy(how=How.CSS, using="h1[class='page-heading product-listing']")
@@ -35,8 +35,6 @@ public class HomePage extends PageSuperClass {
 		new HeaderComponent(headerElement, driver)
 		.clickSearchButton();
 		
-		//add sync here
-
 		return this;
 	}
 	
