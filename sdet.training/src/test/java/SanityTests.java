@@ -35,20 +35,22 @@ public class SanityTests {
 	@Test	
 	public void canLaunchWebDriverUsingConfigFile() throws Exception {
 		String handle = null;
+		DriverManager driverManager = null;
 		WebDriver driver = null;
+		
 		try {
 			
 			String file = "config.properties";
 			HashMap<String,String> properties = new ConfigurationProvider().getPropertiesFromResourceFile(file);
 			String browserType = properties.get("BrowserType");
-			DriverManager driverManager = DriverManagerFactory.getManager(browserType);
+			driverManager = DriverManagerFactory.getManager(browserType);
 			driverManager.getDriver();
 			driver = driverManager.driver;
 			handle = driver.getWindowHandle();
 		}
 		finally {
 			if(driver != null) {
-				driver.quit();
+				driverManager.quitDriver();
 			}
 		}
 		
