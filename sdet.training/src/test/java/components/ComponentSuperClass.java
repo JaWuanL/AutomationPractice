@@ -7,8 +7,8 @@ import framework.ControlExtensionFactory;
 
 public abstract class ComponentSuperClass {
 
-	private SearchContext searchContext;
-	private WebDriver driver;
+	protected SearchContext searchContext;
+	protected WebDriver driver;
 
 	public ComponentSuperClass(SearchContext searchContext, WebDriver driver) {
 		this.searchContext = searchContext;

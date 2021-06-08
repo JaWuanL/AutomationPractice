@@ -7,6 +7,7 @@ import org.openqa.selenium.support.How;
 
 import components.HeaderComponent;
 import components.ManufacturerBlockComponent;
+import components.ProductTiles;
 import framework.PageSuperClass;
 
 public class HomePage extends PageSuperClass {
@@ -19,6 +20,9 @@ public class HomePage extends PageSuperClass {
 
 	@FindBy(how=How.XPATH, using=".//h1[contains(@class, 'page-heading')]")
 	private WebElement headingElement;
+
+	@FindBy(how=How.CSS, using="ul[id='homefeatured']")
+	private WebElement productTileElement;
 
 	public HomePage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
@@ -47,5 +51,16 @@ public class HomePage extends PageSuperClass {
 
 	public String getPageHeadingText() {
 		return headingElement.getText();
+	}
+
+	public HomePage addProductToCart(String productName) {
+		new ProductTiles(productTileElement, driver)
+		.addProductToCart(productName);
+		
+		return this;
+	}
+
+	public CartPage directNavigateToCart() {
+		return new CartPage(driver, baseUrl).navigate();
 	}
 }

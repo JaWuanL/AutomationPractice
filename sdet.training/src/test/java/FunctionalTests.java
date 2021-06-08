@@ -1,5 +1,7 @@
 import static org.testng.Assert.assertEquals;
 
+import java.util.List;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -9,6 +11,19 @@ import framework.Helpers;
 
 public class FunctionalTests extends AutomationPracticeTestsSuperClass {
 
+	@Test
+	public void canClickAddToCart() {
+		
+		String product = "Printed Dress";
+		
+		List<String> cartItems = new HomePage(driver, baseUrl)
+			.addProductToCart(product)
+			.directNavigateToCart()
+			.getCartItems();
+		
+		assertEquals(cartItems.get(0), product);
+	}
+	
 	@Test
 	public void canFilterSearchResultsByFashionManufacturer() {
 
@@ -23,7 +38,6 @@ public class FunctionalTests extends AutomationPracticeTestsSuperClass {
 
 		assertEquals(actualManufacturer, expectedManufacturer, "results should be filtered by selected manufacturer.");		
 	}
-
 
 	@Test (dataProvider = "products")
 	public void canSearchForProduct(String productName) {
