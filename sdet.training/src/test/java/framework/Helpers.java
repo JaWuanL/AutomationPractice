@@ -2,7 +2,6 @@ package framework;
 
 import java.net.URL;
 import java.util.Set;
-
 import org.openqa.selenium.WebDriver;
 
 public class Helpers {
@@ -53,5 +52,16 @@ public class Helpers {
 		}
 		
 		return filePath;
+	}
+
+	public static String getTextBetween(String text, String startText, String endText) {
+
+		int offset = 1;
+		int firstIndex = text.indexOf(startText) + offset;
+		int lastIndex = text.lastIndexOf(endText);
+		
+		String textBetween = text.substring(firstIndex, lastIndex);
+	
+		return textBetween;
 	}
 }

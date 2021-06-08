@@ -17,7 +17,7 @@ public class HomePage extends PageSuperClass {
 	@FindBy(how=How.ID, using="manufacturers_block_left")
 	private WebElement manufacturerBlockElement;
 
-	@FindBy(how=How.CSS, using="h1[class='page-heading product-listing']")
+	@FindBy(how=How.XPATH, using=".//h1[contains(@class, 'page-heading')]")
 	private WebElement headingElement;
 
 	public HomePage(WebDriver driver, String baseUrl) {
