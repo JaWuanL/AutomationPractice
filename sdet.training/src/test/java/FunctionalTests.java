@@ -5,7 +5,7 @@ import java.util.List;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import Pages.HomePage;
+import pages.HomePage;
 import foundation.AutomationPracticeTestsSuperClass;
 import framework.Helpers;
 
