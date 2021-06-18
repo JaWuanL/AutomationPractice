@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HeaderComponent extends ComponentSuperClass {
 	private By searchTextboxLocator = By.id("search_query_top");
-	private By searchButtonLocator = By.name("submit_search");;
+	private By searchButtonLocator = By.name("submit_search");
 
 	public HeaderComponent(SearchContext searchContext, WebDriver driver) {
 		super(searchContext, driver);

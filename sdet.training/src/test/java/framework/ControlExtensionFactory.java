@@ -11,25 +11,27 @@ import controlExtensions.Textbox;
 
 public class ControlExtensionFactory {
 
-	private WebDriver _driver;
+	private SearchContext searchContext;
+	private WebDriver driver;
 
 	public ControlExtensionFactory(SearchContext searchContext, WebDriver driver) {
-		_driver = driver;
+		this.searchContext = searchContext;
+		this.driver = driver;
 	}
 
 	public Button getButton(By locator) {
-		return new Button(findElement(locator), _driver);		
+		return new Button(findElement(locator), driver);		
 	}
 
 	public DropdownList getDropdownList(By locator) {
-		return new DropdownList(findElement(locator), _driver);		
+		return new DropdownList(findElement(locator), driver);		
 	}
 
 	public Textbox getTextbox(By locator) {
-		return new Textbox(findElement(locator), _driver);		
+		return new Textbox(findElement(locator), driver);		
 	}
 	
 	private WebElement findElement(By locator) {
-		return _driver.findElement(locator);
+		return searchContext.findElement(locator);
 	}
 }

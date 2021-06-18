@@ -1,5 +1,8 @@
 package framework;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,5 +37,15 @@ public abstract class PageSuperClass {
 
 	public ControlExtensionFactory getControlExtensionFactory() {
 		return _controlExtensionFactory;
+	}
+	
+	protected List<String> getTextFromElements(List<WebElement> elements) {
+		List<String> textList = new ArrayList<String>();
+		
+		for(WebElement element : elements) {
+			textList.add(element.getText());
+		}
+		
+		return textList;
 	}
 }

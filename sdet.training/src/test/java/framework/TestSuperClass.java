@@ -3,23 +3,19 @@ package framework;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
+import framework.WebDriver.DriverManager;
+import framework.WebDriver.DriverManagerFactory;
 
 public abstract class TestSuperClass {
 
 	protected WebDriver driver;
 
-	protected TestSuperClass() {
-	}
+	public Settings settings;
 
 	public void beforeMethod() {
-		String path = ClassLoader.getSystemResource("chromedriver.exe").getFile();
-		System.setProperty("webdriver.chrome.driver", path);  
-
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		settings = Settings.getSettings();
+		launchWebDriver();
 	}
 
 	public void afterMethod(ITestResult result) {	
@@ -27,5 +23,14 @@ public abstract class TestSuperClass {
 		{
 			driver.quit();
 		}	
+	}
+
+	private void launchWebDriver() {
+		DriverManager driverManager = DriverManagerFactory.getManager(settings.browserType);
+		driverManager.getDriver();
+		driver = driverManager.driver;
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(settings.implicitTimeout, TimeUnit.MILLISECONDS);
+		driver.manage().timeouts().setScriptTimeout(settings.scriptTimeout, TimeUnit.MILLISECONDS);		
 	}
 }
