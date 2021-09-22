@@ -21,7 +21,9 @@ public class ConfigurationProvider {
 			properties.load(inputStream);
 		}
 		finally {
-			inputStream.close();
+			if(inputStream != null) {
+				inputStream.close();
+			}	
 		}
 
 		HashMap<String, String> propertyValuesByKey = new HashMap<String, String>();
